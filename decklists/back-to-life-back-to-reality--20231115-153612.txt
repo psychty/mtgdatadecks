@@ -1,0 +1,70 @@
+1 Ayara, First of Locthwain
+1 Baneful Omen
+1 Basilisk Collar
+1 Blade of the Bloodchief
+1 Blood Artist
+1 Blood Tribute
+1 Bloodbond Vampire
+1 Bolas's Citadel
+1 Butcher of Malakir
+1 Cabal Stronghold
+1 Caged Sun
+1 Captivating Vampire
+1 Child of Night
+1 Cosmos Elixir
+1 Crypt Ghast
+1 Damnation
+1 Dark Ritual
+1 Drana, Liberator of Malakir
+1 Elixir of Immortality
+1 Erebos's Intervention
+1 Fated Return
+1 Feed the Swarm
+1 Fleshbag Marauder
+1 Forever Young
+1 Gatekeeper of Malakir
+1 Gray Merchant of Asphodel
+1 Kheru Mind-Eater
+1 Liliana, Waker of the Dead
+1 Liliana's Triumph
+1 Malakir Blood-Priest
+1 Marauding Blight-Priest
+1 Massacre Wurm
+1 Mirri the Cursed
+1 Netherborn Altar
+1 Nevinyrral's Disk
+1 Nighthawk Scavenger
+1 Nullpriest of Oblivion
+1 Nyx Lotus
+1 Oubliette
+1 Patron of the Vein
+1 Pawn of Ulamog
+1 Price of Betrayal
+1 Read the Bones
+1 Reanimate
+1 Rise of the Dark Realms
+1 Rogue's Passage
+1 Sadistic Sacrament
+1 Sangromancer
+1 Sanguine Bond
+1 Sengir, the Dark Baron
+1 Shadowspear
+1 Sign in Blood
+1 Silversmote Ghoul
+1 Skymarch Bloodletter
+1 Sorin, Imperious Bloodlord
+1 Soul Collector
+1 Spark Harvest
+32 Swamp
+1 The Haunt of Hightower
+1 Unexpected Fangs
+1 Unlikely Aid
+1 Vampire Nighthawk
+1 Vampire of the Dire Moon
+1 Vengeant Vampire
+1 Victimize
+1 Vito, Thorn of the Dusk Rose
+1 Void Beckoner
+1 Wound Reflection
+
+1 Drana, the Last Bloodchief
