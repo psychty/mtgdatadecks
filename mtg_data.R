@@ -29,15 +29,18 @@ drana_deck_df <- read.delim("~/Repositories/mtgdatadecks/decklists/back-to-life-
   mutate(name = str_after_first(V1, ' ')) %>% 
   select(!V1)
 
+# Which cards do I already have information on ####
+library_df <- read_csv(paste0(local_store, '/card_meta.csv'))
+
 whatnotbuys <- read_sheet('https://docs.google.com/spreadsheets/d/1-Q8ZliqPYD0RGHXeL2FIvZoSIeDOg29rfbC-O5Hqw8k/edit?usp=sharing')
 2
 
-library_df <- temur_deck_df %>% 
-  bind_rows(drana_deck_df) %>% 
-  bind_rows(whatnotbuys)%>% 
-  mutate(name = gsub("\\'", "", name))
-
 # Additional data from scryfall ####
+cards_to_search_df <- whatnotbuys %>% 
+  bind_rows(temur_deck_df) %>% 
+  bind_rows(drana_deck_df) %>% 
+  mutate(name = gsub("\\'", "", name)) %>% 
+  filter(!name %in% library_df$sanitised_name)
 
 # https://curso-r.github.io/scryr/articles/syntax.html
 
@@ -53,13 +56,13 @@ library_df <- temur_deck_df %>%
 
 
 # Using our dataframe
-for(i in 1:nrow(library_df)){
+for(i in 1:nrow(cards_to_search_df)){
 
 if(i == 1){
 card_meta <- data.frame()
 }
   
-name_x <- library_df$name[i]
+name_x <- cards_to_search_df$name[i]
 
 card_x_meta <- scry_cards(paste0('name:',name_x)) 
 
@@ -68,7 +71,9 @@ card_meta <- card_meta %>%
 
 }
 
-card_meta %>% 
+# Update library df ####
+
+card_meta_new <- card_meta %>% 
   select(name, mana_cost, combined_mana_cost = cmc, card_text = oracle_text, power, toughness, legalities, type = type_line, keywords, layout, arena_id, prints_search_uri, rarity) %>% 
   unnest(legalities) %>% 
   select(!c(future, historic, timeless, gladiator, pioneer, explorer, modern, legacy, pauper, vintage, penny, oathbreaker, standardbrawl, brawl, alchemy, paupercommander, duel, oldschool, premodern, predh)) %>% 
@@ -87,7 +92,7 @@ card_meta %>%
                                 TRUE ~ 'Not vigilance')) %>% 
   separate_wider_delim(keywords,
                        delim = ",",
-                       names = c("First_keyword", "Second_keyword", "Third_keyword", 'Fourth_keyword'),
+                       names = c("First_keyword", "Second_keyword", "Third_keyword", 'Fourth_keyword', 'Fifth_keyword'),
                        too_few = "align_start") %>% 
   mutate(Broad_type = case_when(
     str_detect(type, '[Cc]reature') ~ 'Creature',
@@ -96,22 +101,54 @@ card_meta %>%
     str_detect(type, 'Land') ~ 'Land',
     !str_detect(type, ' — ') ~ type,
     TRUE ~ str_before_first(type, ' — '))) %>% 
+  unique %>% 
+  mutate(sanitised_name = case_when(
+    name == "Trostani's Judgment" ~ 'Trostanis Judgment',
+    name == "Coursers' Accord" ~ 'Coursers Accord',
+    name == "Assassin's Strike" ~ 'Assassins Strike',
+    name == "Bane's Invoker" ~ 'Banes Invoker',
+    name == "+2 Mace" ~ 'Mace',
+    name == "Kinjalli's Dawnrunner" ~ 'Kinjallis Dawnrunner',
+    name == "Citizen's Crowbar" ~ 'Citizens Crowbar',
+    name == "Urza's Rage" ~ 'Urzas Rage',
+    name == "Gimli's Fury" ~ 'Gimlis Fury',
+    name == "Light 'Em Up" ~ 'Light Em Up',
+    name == "Bandit's Talent" ~ 'Bandits Talent',
+    name == "Kolaghan's Command" ~ 'Kolaghans Command',
+    name == "Seer's Sundial" ~ 'Seers Sundial',
+    name == "Séance" ~ 'Seance',
+    name == 'Stormshriek Feral // Flush Out' ~ 'Stormshriek Feral',
+    name == 'Whirlwing Stormbrood // Dynamic Soar' ~ 'Whirlwing Stormbrood',
+    TRUE ~ gsub("\\'", '', name))) %>% 
+  filter(sanitised_name %in% cards_to_search_df$name) %>% 
+  mutate(toughness = as.numeric(toughness))
+
+cards_not_found <- cards_to_search_df %>% 
+  filter(!name %in% card_meta_new$sanitised_name) 
+
+if(nrow(card_meta_new) >0){
+
+library_df %>%
+  bind_rows(card_meta_new) %>%
+  unique() %>% 
   write.csv(., paste0(local_store, '/card_meta.csv'), row.names = FALSE)
 
+}
 
-library_df <- read_csv(paste0(local_store, '/card_meta.csv'))
+library_df <- read_csv(paste0(local_store, '/card_meta.csv')) %>% 
+  unique()
 
 # Banned ####
 
 library_df %>% 
   filter(commander == 'banned')
+
 # Check any of library on banned list 
 # scry_cards("legalities ")
 # banned:
 
-
 # There is a useful autocomplete function if you're unsure of the full name of a card
-autocomplete_name("oath")[12]
+autocomplete_name("apocalypse")[12]
 
 # Wants ####
 
