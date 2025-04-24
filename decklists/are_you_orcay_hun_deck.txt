@@ -1,0 +1,71 @@
+1 Zurgo, Thunder's Decree
+1 Scoured Barrens
+1 Nomad Outpost
+1 Great Hall of the Citadel
+1 Secluded Courtyard
+1 Wind-Scarred Crag
+1 Molten Slagheap
+1 Bloodfell Caves
+1 Bone-Cairn Butcher
+1 Uglúk of the White Hand
+1 Foray of Orcs
+1 Salt Road Skirmish
+1 Flatten
+1 Thunderwave
+1 Wrath of God
+1 Burst Lightning
+1 Goblin Javelineer
+1 Gollum's Bite
+1 Lash of the Balrog
+1 Stab
+1 Take Heart
+1 Escape from Orthanc
+1 Clockwork Drawbridge
+1 Mauhúr, Uruk-hai Captain
+1 Conduit Goblin
+1 Frontline Rush
+1 Warbeast of Gorgoroth
+1 Incinerating Blast
+1 Reigning Victor
+1 Oliphaunt
+1 Skoa, Embermage
+1 Rout
+1 Hellhole Flailer
+1 Summon Undead
+1 Hobgoblin Captain
+1 Battle-Scarred Goblin
+1 Battle Cry Goblin
+1 Kolaghan's Command
+1 Thunder of Unity
+1 Shock Brigade
+1 Hulking Bugbear
+1 Grishnákh, Brash Instigator
+1 Atrocious Experiment
+1 March from the Black Gate
+1 Mordor Muster
+1 Rising of the Day
+1 Book of Mazarbul
+1 Morgul-Knife Wound
+1 Twin Bolt
+1 Divine Smite
+1 Coronation of Chaos
+1 Magic Missile
+1 Improvised Weaponry
+1 Price of Loyalty
+1 Reprieve
+1 Gorbag of Minas Morgul
+1 Snarling Warg
+1 Vengeful Possession
+1 Gollum, Scheming Guide
+1 Guiding Bolt
+1 Banishing Light
+1 Dismember
+1 Starry-Eyed Skyrider
+1 Nightblade Brigade
+1 Ambuscade Shaman
+1 Mordor Trebuchet
+1 Critical Hit
+1 Gothmog, Morgul Lieutenant
+12 Mountain
+12 Swamp
+8 Plains
